@@ -84,7 +84,8 @@ public class CountryFragment extends LifecycleFragment implements Injectable {
         initRecyclerView();
         CountryListAdapter rvAdapter = new CountryListAdapter(dataBindingComponent,
                 true,
-                country -> countryViewModel.setQuery(TextUtils.join(",", country.borders))/*navigationController.navigateToBordering(country.alpha3Code)*/);
+                country -> countryViewModel.setQuery(TextUtils.join(",", country.borders))
+                /*navigationController.navigateToBordering(country.alpha3Code)*/);
         binding.get().countryList.setAdapter(rvAdapter);
         adapter = new AutoClearedValue<>(this, rvAdapter);
 

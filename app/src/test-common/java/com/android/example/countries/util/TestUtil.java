@@ -30,12 +30,14 @@ public class TestUtil {
         borders.add("LBN");
         borders.add("SYR");
 
-        Country israel = TestUtil.createCountry("ISR", "יִשְׂרָאֵל", "Israel", "https://restcountries.eu/data/imn.svg", borders);
+        Country israel = TestUtil.createCountry("ISR", "יִשְׂרָאֵל",
+                "Israel", "https://restcountries.eu/data/imn.svg", borders);
 
         return israel;
     }
 
-    public static Country createCountry(String alpha3Code, String nativeName, String name, String flag, List<String> borders) {
+    public static Country createCountry(String alpha3Code, String nativeName, String name,
+                                        String flag, List<String> borders) {
         return new Country(alpha3Code, nativeName, name, flag, borders);
     }
 
@@ -48,7 +50,8 @@ public class TestUtil {
         borders.add("LBN");
         borders.add("SYR");
 
-        Country israel = TestUtil.createCountry("ISR", "יִשְׂרָאֵל", "Israel", "https://restcountries.eu/data/imn.svg", borders);
+        Country israel = TestUtil.createCountry("ISR", "יִשְׂרָאֵל",
+                    "Israel", "https://restcountries.eu/data/imn.svg", borders);
 
         list.add(israel);
         list.add(createCountry("EGY", "", "", "", null));

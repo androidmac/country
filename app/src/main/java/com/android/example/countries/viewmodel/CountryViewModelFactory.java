@@ -40,7 +40,7 @@ public class CountryViewModelFactory implements ViewModelProvider.Factory {
         Provider<? extends ViewModel> creator = creators.get(modelClass);
         if (creator == null) {
             for (Map.Entry<Class<? extends ViewModel>,
-                    Provider<ViewModel>> entry : creators.entrySet()) {
+                        Provider<ViewModel>> entry : creators.entrySet()) {
                 if (modelClass.isAssignableFrom(entry.getKey())) {
                     creator = entry.getValue();
                     break;
