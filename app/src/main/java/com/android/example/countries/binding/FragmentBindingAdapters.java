@@ -36,10 +36,11 @@ public class FragmentBindingAdapters {
     public FragmentBindingAdapters(Fragment fragment) {
         this.fragment = fragment;
     }
+
     @BindingAdapter("imageUrl")
     public void bindImage(ImageView imageView, String url) {
-     //   Glide.with(fragment).load(url).into(imageView);
-        ((CountryFragment)fragment).getSvgRequistBuilder()
+        //   Glide.with(fragment).load(url).into(imageView);
+        ((CountryFragment) fragment).getSvgRequistBuilder()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 // SVG cannot be serialized so it's not worth to cache it
                 .load(Uri.parse(url))

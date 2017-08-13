@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements LifecycleRegistry
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         if (savedInstanceState == null) {
-           if (navigationController!= null) navigationController.navigateToCountries();
+            if (navigationController != null) navigationController.navigateToCountries();
         }
     }
 

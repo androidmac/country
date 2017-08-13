@@ -85,7 +85,7 @@ public class CountryServiceTest {
         Country country = countries.get(0);
         assertThat(country.name, is("Afghanistan"));
 
-        country = countries.get(countries.size()-1);
+        country = countries.get(countries.size() - 1);
         assertThat(country.name, is("Zimbabwe"));
     }
 

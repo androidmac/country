@@ -30,6 +30,7 @@ public class CountryViewModelTest {
     public InstantTaskExecutorRule instantExecutor = new InstantTaskExecutorRule();
     private CountryViewModel viewModel;
     private CountryRepository repository;
+
     @Before
     public void init() {
         repository = mock(CountryRepository.class);
@@ -37,7 +38,7 @@ public class CountryViewModelTest {
     }
 
     @Test
-    public void testNull(){
+    public void testNull() {
         assertThat(viewModel.getCountries(), notNullValue());
     }
 

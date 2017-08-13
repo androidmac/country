@@ -37,7 +37,8 @@ public class RecyclerViewMatcher {
     }
 
     public Matcher<View> atPosition(final int position) {
-        return atPositionOnView(position, -1);
+        return atPositionOnView(position,
+                -1);
     }
 
     public Matcher<View> atPositionOnView(final int position, final int targetViewId) {
@@ -52,11 +53,13 @@ public class RecyclerViewMatcher {
                     try {
                         idDescription = this.resources.getResourceName(recyclerViewId);
                     } catch (Resources.NotFoundException var4) {
-                        idDescription = String.format("%s (resource name not found)", recyclerViewId);
+                        idDescription = String.format("%s (resource name not found)",
+                                recyclerViewId);
                     }
                 }
 
-                description.appendText("RecyclerView with id: " + idDescription + " at position: " + position);
+                description.appendText("RecyclerView with id: " + idDescription +
+                        " at position: " + position);
             }
 
             public boolean matchesSafely(View view) {
@@ -67,14 +70,13 @@ public class RecyclerViewMatcher {
                     RecyclerView recyclerView =
                             (RecyclerView) view.getRootView().findViewById(recyclerViewId);
                     if (recyclerView != null && recyclerView.getId() == recyclerViewId) {
-                        RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForAdapterPosition(position);
+                        RecyclerView.ViewHolder viewHolder =
+                                recyclerView.findViewHolderForAdapterPosition(position);
                         if (viewHolder != null) {
                             childView = viewHolder.itemView;
                         }
-                    }
-                    else {
-                        return false;
-                    }
+                    } else return false;
+
                 }
 
                 if (targetViewId == -1) {

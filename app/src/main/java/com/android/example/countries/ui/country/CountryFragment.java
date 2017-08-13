@@ -43,7 +43,8 @@ public class CountryFragment extends LifecycleFragment implements Injectable {
     @Inject
     NavigationController navigationController;
 
-    android.databinding.DataBindingComponent dataBindingComponent = new FragmentDataBindingComponent(this);
+    android.databinding.DataBindingComponent dataBindingComponent =
+            new FragmentDataBindingComponent(this);
     private CountryViewModel countryViewModel;
     private AutoClearedValue<CountryFragmentBinding> binding;
     private AutoClearedValue<CountryListAdapter> adapter;
@@ -57,8 +58,9 @@ public class CountryFragment extends LifecycleFragment implements Injectable {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        CountryFragmentBinding dataBinding = DataBindingUtil.inflate(inflater, R.layout.country_fragment,
-                container, false, dataBindingComponent);
+        CountryFragmentBinding dataBinding =
+                DataBindingUtil.inflate(inflater, R.layout.country_fragment,
+                        container, false, dataBindingComponent);
         dataBinding.setRetryCallback(() -> countryViewModel.retry());
         binding = new AutoClearedValue<>(this, dataBinding);
         return dataBinding.getRoot();
@@ -66,7 +68,7 @@ public class CountryFragment extends LifecycleFragment implements Injectable {
 
     private GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> requestBuilder;
 
-    public GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> getSvgRequistBuilder(){
+    public GenericRequestBuilder<Uri, InputStream, SVG, PictureDrawable> getSvgRequistBuilder() {
         return requestBuilder;
     }
 
@@ -76,11 +78,13 @@ public class CountryFragment extends LifecycleFragment implements Injectable {
 
         createSVGRequestBuilder();
 
-        countryViewModel = ViewModelProviders.of(this, viewModelFactory).get(CountryViewModel.class);
+        countryViewModel =
+                ViewModelProviders.of(this, viewModelFactory).get(CountryViewModel.class);
 
         initRecyclerView();
-        CountryListAdapter rvAdapter = new CountryListAdapter(dataBindingComponent, true,
-                country -> countryViewModel.setQuery(TextUtils.join(",",country.borders))/*navigationController.navigateToBordering(country.alpha3Code)*/);
+        CountryListAdapter rvAdapter = new CountryListAdapter(dataBindingComponent,
+                true,
+                country -> countryViewModel.setQuery(TextUtils.join(",", country.borders))/*navigationController.navigateToBordering(country.alpha3Code)*/);
         binding.get().countryList.setAdapter(rvAdapter);
         adapter = new AutoClearedValue<>(this, rvAdapter);
 

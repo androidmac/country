@@ -42,7 +42,8 @@ public class CountryRepository {
     private final AppExecutors appExecutors;
 
     @Inject
-    CountryRepository(AppExecutors appExecutors, CountryDao countryDao, CountryService countryService) {
+    CountryRepository(AppExecutors appExecutors, CountryDao countryDao,
+                      CountryService countryService) {
         this.countryDao = countryDao;
         this.countryService = countryService;
         this.appExecutors = appExecutors;

@@ -16,9 +16,9 @@
 
 package com.android.example.countries.util;
 
-import com.android.example.countries.AppExecutors;
-
 import android.support.annotation.NonNull;
+
+import com.android.example.countries.AppExecutors;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeoutException;
 
 public class CountingAppExecutors {
 
-    private final Object LOCK = new Object();
+    private final Object lock = new Object();
 
     private int taskCount = 0;
 
@@ -35,15 +35,15 @@ public class CountingAppExecutors {
 
     public CountingAppExecutors() {
         Runnable increment = () -> {
-            synchronized (LOCK) {
+            synchronized (lock) {
                 taskCount--;
                 if (taskCount == 0) {
-                    LOCK.notifyAll();
+                    lock.notifyAll();
                 }
             }
         };
         Runnable decrement = () -> {
-            synchronized (LOCK) {
+            synchronized (lock) {
                 taskCount++;
             }
         };
@@ -61,14 +61,14 @@ public class CountingAppExecutors {
             throws InterruptedException, TimeoutException {
         long end = System.currentTimeMillis() + timeUnit.toMillis(time);
         while (true) {
-            synchronized (LOCK) {
+            synchronized (lock) {
                 if (taskCount == 0) {
                     return;
                 }
                 long now = System.currentTimeMillis();
                 long remaining = end - now;
                 if (remaining > 0) {
-                    LOCK.wait(remaining);
+                    lock.wait(remaining);
                 } else {
                     throw new TimeoutException("could not drain tasks");
                 }

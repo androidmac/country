@@ -60,7 +60,7 @@ public abstract class DataBoundListAdapter<T, V extends ViewDataBinding>
     @SuppressLint("StaticFieldLeak")
     @MainThread
     public void replace(List<T> update) {
-        dataVersion ++;
+        dataVersion++;
         if (items == null) {
             if (update == null) {
                 return;
@@ -76,7 +76,7 @@ public abstract class DataBoundListAdapter<T, V extends ViewDataBinding>
             final List<T> oldItems = items;
             new AsyncTask<Void, Void, DiffUtil.DiffResult>() {
                 @Override
-                protected DiffUtil.DiffResult  doInBackground(Void... voids) {
+                protected DiffUtil.DiffResult doInBackground(Void... voids) {
                     return DiffUtil.calculateDiff(new DiffUtil.Callback() {
                         @Override
                         public int getOldListSize() {
@@ -96,7 +96,8 @@ public abstract class DataBoundListAdapter<T, V extends ViewDataBinding>
                         }
 
                         @Override
-                        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                        public boolean areContentsTheSame(int oldItemPosition,
+                                                          int newItemPosition) {
                             T oldItem = oldItems.get(oldItemPosition);
                             T newItem = update.get(newItemPosition);
                             return DataBoundListAdapter.this.areContentsTheSame(oldItem, newItem);

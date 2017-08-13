@@ -23,7 +23,7 @@ import java.util.List;
 
 public class TestUtil {
 
-    public static Country createCountryIsrael(){
+    public static Country createCountryIsrael() {
         List<String> borders = new ArrayList<>();
         borders.add("EGY");
         borders.add("JOR");
@@ -35,11 +35,11 @@ public class TestUtil {
         return israel;
     }
 
-    public static Country createCountry(String alpha3Code, String nativeName, String name, String flag, List<String> borders){
+    public static Country createCountry(String alpha3Code, String nativeName, String name, String flag, List<String> borders) {
         return new Country(alpha3Code, nativeName, name, flag, borders);
     }
 
-    public static List<Country> createIsraelWithItsBorderCountries(){
+    public static List<Country> createIsraelWithItsBorderCountries() {
         List<Country> list = new ArrayList<>();
 
         List<String> borders = new ArrayList<>();
@@ -51,10 +51,10 @@ public class TestUtil {
         Country israel = TestUtil.createCountry("ISR", "יִשְׂרָאֵל", "Israel", "https://restcountries.eu/data/imn.svg", borders);
 
         list.add(israel);
-        list.add(createCountry("EGY","","","",null));
-        list.add(createCountry("JOR","","","",null));
-        list.add(createCountry("LBN","","","",null));
-        list.add(createCountry("SYR","","","",null));
+        list.add(createCountry("EGY", "", "", "", null));
+        list.add(createCountry("JOR", "", "", "", null));
+        list.add(createCountry("LBN", "", "", "", null));
+        list.add(createCountry("SYR", "", "", "", null));
 
         return list;
     }

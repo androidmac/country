@@ -38,7 +38,8 @@ public class Country {
     @SerializedName("borders")
     public final List<String> borders;
 
-    public Country(String alpha3Code, String nativeName, String name, String flag, List<String> borders) {
+    public Country(String alpha3Code, String nativeName, String name, String flag,
+                   List<String> borders) {
         this.alpha3Code = alpha3Code;
         this.nativeName = nativeName;
         this.name = name;

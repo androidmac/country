@@ -20,7 +20,8 @@ import com.bumptech.glide.request.target.Target;
 public class SvgSoftwareLayerSetter<T> implements RequestListener<T, PictureDrawable> {
 
     @Override
-    public boolean onException(Exception e, T model, Target<PictureDrawable> target, boolean isFirstResource) {
+    public boolean onException(Exception e, T model, Target<PictureDrawable> target,
+                               boolean isFirstResource) {
         ImageView view = ((ImageViewTarget<?>) target).getView();
         if (Build.VERSION_CODES.HONEYCOMB <= Build.VERSION.SDK_INT) {
             view.setLayerType(ImageView.LAYER_TYPE_NONE, null);
@@ -29,7 +30,8 @@ public class SvgSoftwareLayerSetter<T> implements RequestListener<T, PictureDraw
     }
 
     @Override
-    public boolean onResourceReady(PictureDrawable resource, T model, Target<PictureDrawable> target,
+    public boolean onResourceReady(PictureDrawable resource, T model,
+                                   Target<PictureDrawable> target,
                                    boolean isFromMemoryCache, boolean isFirstResource) {
         ImageView view = ((ImageViewTarget<?>) target).getView();
         if (Build.VERSION_CODES.HONEYCOMB <= Build.VERSION.SDK_INT) {
