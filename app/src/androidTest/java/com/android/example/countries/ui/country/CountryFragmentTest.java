@@ -78,11 +78,11 @@ public class CountryFragmentTest {
     }
 
     @Test
-    public void whenClickOnCountry_verifyQueryUpdatedWithBorders(){
+    public void whenClickOnCountry_verifyQueryUpdatedWithBorders() {
         Country country = createCountryIsrael();
         results.postValue(Resource.success(Arrays.asList(country)));
         onView(withText(country.name)).perform(click());
-        String bordersOfIsrael = TextUtils.join(",",country.borders);
+        String bordersOfIsrael = TextUtils.join(",", country.borders);
         verify(viewModel).setQuery(bordersOfIsrael);
     }
 

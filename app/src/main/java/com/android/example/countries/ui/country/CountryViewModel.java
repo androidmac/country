@@ -34,6 +34,7 @@ public class CountryViewModel extends ViewModel {
     private final MutableLiveData<String> query = new MutableLiveData<>();
 
     private final LiveData<Resource<List<Country>>> countries;
+
     @SuppressWarnings("unchecked")
     @Inject
     public CountryViewModel(CountryRepository repository) {
@@ -51,15 +52,15 @@ public class CountryViewModel extends ViewModel {
         return countries;
     }
 
-    public void setQuery(String code){
+    public void setQuery(String code) {
         query.setValue(code);
     }
 
-    public String getQuery(){
+    public String getQuery() {
         return query.getValue();
     }
 
-    public void initQuery(){
+    public void initQuery() {
         if (query.getValue() == null)
             query.setValue("");
     }
