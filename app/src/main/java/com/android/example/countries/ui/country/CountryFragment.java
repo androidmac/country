@@ -76,6 +76,12 @@ public class CountryFragment extends LifecycleFragment implements Injectable {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        String[] field = new String[10];
+        String s = "";
+        for (int i = 0; i < field.length; ++i) {
+            s = s + field[i];
+        }
+
         createSVGRequestBuilder();
 
         countryViewModel =

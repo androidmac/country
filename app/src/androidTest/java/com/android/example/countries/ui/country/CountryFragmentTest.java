@@ -12,7 +12,6 @@ import com.android.example.countries.testing.SingleFragmentActivity;
 import com.android.example.countries.ui.common.NavigationController;
 import com.android.example.countries.util.RecyclerViewMatcher;
 import com.android.example.countries.util.TaskExecutorWithIdlingResourceRule;
-import com.android.example.countries.util.TestUtil;
 import com.android.example.countries.util.ViewModelUtil;
 import com.android.example.countries.vo.Country;
 import com.android.example.countries.vo.Resource;
@@ -22,7 +21,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

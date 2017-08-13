@@ -16,15 +16,12 @@
 
 package com.android.example.countries.util;
 
-import com.android.example.countries.api.ApiResponse;
-
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
-import retrofit2.Response;
+import com.android.example.countries.api.ApiResponse;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
+import retrofit2.Response;
 
 public class ApiUtil {
     public static <T> LiveData<ApiResponse<T>> successCall(T data) {
