@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Utility class that decides whether we should fetch some data or not.
  */
+@SuppressWarnings("checkstyle:ClassTypeParameterName")
 public class RateLimiter<KEY> {
     private ArrayMap<KEY, Long> timestamps = new ArrayMap<>();
     private final long timeout;

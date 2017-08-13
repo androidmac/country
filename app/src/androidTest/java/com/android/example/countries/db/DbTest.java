@@ -23,6 +23,7 @@ import android.support.test.InstrumentationRegistry;
 import org.junit.After;
 import org.junit.Before;
 
+@SuppressWarnings("all")
 abstract public class DbTest {
     protected CountryDb db;
 
