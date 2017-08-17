@@ -17,6 +17,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 apply from: '../config/quality/quality.gradle'
+apply plugin: 'spoon'
 
 android {
     compileSdkVersion 25
@@ -85,6 +86,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.android.support', module: 'support-core-utils'
     })
+
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.6.4'
+
     androidTestCompile "com.android.support:appcompat-v7:$support_version"
     androidTestCompile "com.android.support:recyclerview-v7:$support_version"
     androidTestCompile "com.android.support:support-v4:$support_version"
@@ -101,6 +105,22 @@ dependencies {
     })
     androidTestCompile "org.mockito:mockito-android:$mockito_version"
     implementation files('libs/androidsvg-1.2.1.jar')
+}
+
+task runMonkey(type:Exec) {
+    doFirst {
+        println "Starting Monkeyrunner..."
+        workingDir = file('C:\\Android\\SDK\\tools\\bin')
+        commandLine = ['cmd', '/c', 'monkeyrunner.bat', 'C:\\Users\\corly_h\\Desktop\\Architecture\\monkey-test.py']
+    }
+}
+
+// This section is optional
+spoon {
+    // for debug output
+    debug = true
+    // To grant permissions to Android M >= devices */
+    grantAllPermissions = true
 }
 
 task fullCoverageReport(type: JacocoReport) {
